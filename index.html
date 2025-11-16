@@ -9,103 +9,107 @@
         body {
             margin: 0;
             padding: 0;
+            background: #0b0b0b;
             font-family: Arial, sans-serif;
-            background: url("https://i.ibb.co/3p0bDgV/hearts-bg.png");
-            background-size: 180px;
-            background-repeat: repeat;
-        }
-
-        header {
-            text-align: center;
-            padding: 40px 0 10px;
-        }
-
-        header h1 {
-            font-size: 3rem;
             color: white;
-            text-shadow: 0 0 15px rgba(0,0,0,0.6);
-        }
-
-        section {
-            max-width: 650px;
-            margin: auto;
-            padding: 30px;
-            background: rgba(255,255,255,0.8);
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             text-align: center;
         }
 
-        h2 {
-            color: #222;
+        /* НЕОНОВОЕ СЕРДЦЕ */
+        .heart {
+            width: 220px;
+            height: 200px;
+            position: relative;
+            background: #ff2fe6;
+            transform: rotate(-45deg);
+            animation: neonPulse 2.5s ease-in-out infinite;
+            box-shadow: 0 0 25px #ff2fe6, 0 0 55px #ff2fe6;
+            margin-bottom: 30px;
         }
 
-        p {
-            color: #444;
-            line-height: 1.6;
+        .heart::before,
+        .heart::after {
+            content: "";
+            width: 220px;
+            height: 200px;
+            background: #ff2fe6;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 25px #ff2fe6, 0 0 55px #ff2fe6;
         }
 
+        .heart::before {
+            top: -110px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 110px;
+            top: 0;
+        }
+
+        @keyframes neonPulse {
+            0% {
+                box-shadow: 0 0 20px #ff2fe6, 0 0 40px #ff2fe6;
+            }
+            50% {
+                box-shadow: 0 0 60px #ff67ff, 0 0 120px #ff67ff;
+            }
+            100% {
+                box-shadow: 0 0 20px #ff2fe6, 0 0 40px #ff2fe6;
+            }
+        }
+
+        /* КНОПКА */
         button {
-            background: #3c48bf;
-            color: white;
-            border: none;
+            margin-top: 20px;
             padding: 12px 25px;
+            font-size: 18px;
+            background: #ff2fe6;
+            border: none;
             border-radius: 10px;
-            font-size: 1.1rem;
+            color: white;
             cursor: pointer;
+            box-shadow: 0 0 20px #ff2fe6;
             transition: 0.3s;
         }
 
         button:hover {
-            background: #5a6bff;
+            transform: scale(1.1);
+            box-shadow: 0 0 35px #ff67ff;
         }
 
-        #mainPhoto {
+        /* ФОТО (спрятано) */
+        #photo {
             display: none;
-            width: 85%;
-            max-width: 420px;
+            margin-top: 25px;
+            width: 300px;
             border-radius: 15px;
-            margin-top: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: white;
-            font-weight: bold;
-            text-shadow: 0 0 10px black;
+            box-shadow: 0 0 25px #ff2fe6;
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Ты Особенная 💙</h1>
-</header>
+    <div class="heart"></div>
 
-<section>
-    <h2>Почему ты чудесная</h2>
-    <p>Ты вдохновляешь, заставляешь улыбаться и делаешь каждый день лучше.  
-    Этот сайт — маленький способ сказать, насколько ты важна.</p>
-
-    <h2>Фото</h2>
+    <h1>Ты невероятная 💖</h1>
 
     <button onclick="showPhoto()">Показать фото</button>
 
-    <img id="mainPhoto" src="singlePhoto.jpg" alt="photo">
-</section>
+    <img id="photo" src="singlePhoto.png" alt="Фото">
 
-<footer>
-    Сделано с заботой 💙
-</footer>
-
-<script>
-function showPhoto() {
-    document.getElementById("mainPhoto").style.display = "block";
-}
-</script>
+    <script>
+        function showPhoto() {
+            document.getElementById("photo").style.display = "block";
+        }
+    </script>
 
 </body>
 </html>
