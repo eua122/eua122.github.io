@@ -1,115 +1,91 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ты Особенная</title>
 
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: #0b0b0b;
             font-family: Arial, sans-serif;
+
+            /* фон как цвет сердечка */
+            background-color: #148CFF;
             color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             text-align: center;
         }
 
-        /* НЕОНОВОЕ СЕРДЦЕ */
+        header {
+            font-size: 32px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
         .heart {
-            width: 220px;
-            height: 200px;
-            position: relative;
-            background: #ff2fe6;
-            transform: rotate(-45deg);
-            animation: neonPulse 2.5s ease-in-out infinite;
-            box-shadow: 0 0 25px #ff2fe6, 0 0 55px #ff2fe6;
-            margin-bottom: 30px;
+            color: white;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff;
         }
 
-        .heart::before,
-        .heart::after {
-            content: "";
-            width: 220px;
-            height: 200px;
-            background: #ff2fe6;
-            border-radius: 50%;
-            position: absolute;
-            box-shadow: 0 0 25px #ff2fe6, 0 0 55px #ff2fe6;
+        .container {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 30px;
+            width: 80%;
+            max-width: 600px;
+            margin: 40px auto;
+            border-radius: 20px;
+            backdrop-filter: blur(6px);
         }
 
-        .heart::before {
-            top: -110px;
-            left: 0;
-        }
-
-        .heart::after {
-            left: 110px;
-            top: 0;
-        }
-
-        @keyframes neonPulse {
-            0% {
-                box-shadow: 0 0 20px #ff2fe6, 0 0 40px #ff2fe6;
-            }
-            50% {
-                box-shadow: 0 0 60px #ff67ff, 0 0 120px #ff67ff;
-            }
-            100% {
-                box-shadow: 0 0 20px #ff2fe6, 0 0 40px #ff2fe6;
-            }
-        }
-
-        /* КНОПКА */
         button {
             margin-top: 20px;
             padding: 12px 25px;
-            font-size: 18px;
-            background: #ff2fe6;
+            background: white;
+            color: #148CFF;
             border: none;
             border-radius: 10px;
-            color: white;
+            font-size: 18px;
             cursor: pointer;
-            box-shadow: 0 0 20px #ff2fe6;
             transition: 0.3s;
         }
 
         button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 35px #ff67ff;
+            transform: scale(1.05);
         }
 
-        /* ФОТО (спрятано) */
         #photo {
-            display: none;
-            margin-top: 25px;
-            width: 300px;
+            margin-top: 20px;
+            width: 90%;
+            max-width: 350px;
             border-radius: 15px;
-            box-shadow: 0 0 25px #ff2fe6;
+            display: none;
+            box-shadow: 0 0 20px rgba(255,255,255,0.7);
         }
     </style>
 </head>
 
 <body>
 
-    <div class="heart"></div>
+<header>
+    Ты Особенная <span class="heart">💙</span>
+</header>
 
-    <h1>Ты невероятная 💖</h1>
+<div class="container">
+    <h2>Почему ты чудесная</h2>
+    <p>Ты вдохновляешь, заставляешь улыбаться, делишься добром и делаешь мир ярче.</p>
 
+    <h3>Фото</h3>
     <button onclick="showPhoto()">Показать фото</button>
 
     <img id="photo" src="singlePhoto.png" alt="Фото">
+</div>
 
-    <script>
-        function showPhoto() {
-            document.getElementById("photo").style.display = "block";
-        }
-    </script>
+<script>
+    function showPhoto() {
+        document.getElementById('photo').style.display = 'block';
+    }
+</script>
 
 </body>
 </html>
