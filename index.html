@@ -1,82 +1,83 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Для Тебя</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #ffeef5;
-      color: #333;
-    }
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: #ffbcd4;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 3rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.7em;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-  </style>
+background: #ffbcd4;
+}
+header h1 {
+margin: 0;
+font-size: 3rem;
+}
+header p {
+font-size: 1.2rem;
+margin-top: 10px;
+}
+section {
+padding: 40px 20px;
+max-width: 800px;
+margin: auto;
+line-height: 1.7em;
+}
+.gallery {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 20px;
+margin-top: 30px;
+}
+.gallery img {
+width: 100%;
+border-radius: 15px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+footer {
+text-align: center;
+padding: 20px;
+font-size: 0.9rem;
+color: #666;
+}
+</style>
 </head>
 <body>
-  <header>
-    <h1>Ты Особенная</h1>
-    <p>Небольшой сайт, созданный специально для тебя</p>
-  </header>
+<header>
+<h1>Ты Особенная</h1>
+<p>Небольшой сайт, созданный специально для тебя</p>
+</header>
 
-  <section>
-    <h2>Почему ты чудесная</h2>
-    <p>
-      Ты вдохновляешь, заставляешь улыбаться и делаешь каждый день ярче. 
-      Этот сайт — маленький способ сказать, насколько ты важна.
-    </p>
-  </section>
 
-  <section>
-    <h2>Галерея</h2>
-    <p>Здесь могут быть твои фотографии или приятные моменты:</p>
+<section>
+<h2>Почему ты чудесная</h2>
+<p>
+Ты вдохновляешь, заставляешь улыбаться и делаешь каждый день ярче.
+Этот сайт — маленький способ сказать, насколько ты важна.
+</p>
+</section>
 
-    <div class="gallery">
-      <img src="https://placekitten.com/300/300" alt="photo" />
-      <img src="https://placekitten.com/301/300" alt="photo" />
-      <img src="https://placekitten.com/300/301" alt="photo" />
-    </div>
-  </section>
 
-  <footer>
-    Сделано с заботой ❤
-  </footer>
+<section>
+<h2>Галерея</h2>
+<p>Здесь могут быть твои фотографии или приятные моменты:</p>
+
+
+<div class="gallery">
+<img src="https://placekitten.com/300/300" alt="photo" />
+<img src="https://placekitten.com/301/300" alt="photo" />
+<img src="https://placekitten.com/300/301" alt="photo" />
+</div>
+</section>
+
+
+<section>
+<h2>Фото</h2>
+<button onclick="document.getElementById('singlePhoto').style.display='block'" style="padding: 10px 20px; font-size: 1rem; border-radius: 10px; border: none; cursor: pointer; background: #ffffffaa; backdrop-filter: blur(4px);">
+Показать фото
+</button>
+
+
+<div id="singlePhoto" style="display:none; margin-top:20px; text-align:center;">
+<img src="singlePhoto.jpg" style="width:300px; border-radius:20px; box-shadow:0 4px 8px rgba(0,0,0,0.2);" />
+</div>
+</section>
+
+
+<footer>
+Сделано с заботой ❤
+</footer>
 </body>
 </html>
