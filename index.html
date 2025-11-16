@@ -1,83 +1,132 @@
 <!DOCTYPE html>
-background: #ffbcd4;
-}
-header h1 {
-margin: 0;
-font-size: 3rem;
-}
-header p {
-font-size: 1.2rem;
-margin-top: 10px;
-}
-section {
-padding: 40px 20px;
-max-width: 800px;
-margin: auto;
-line-height: 1.7em;
-}
-.gallery {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-gap: 20px;
-margin-top: 30px;
-}
-.gallery img {
-width: 100%;
-border-radius: 15px;
-box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-footer {
-text-align: center;
-padding: 20px;
-font-size: 0.9rem;
-color: #666;
-}
-</style>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ты Особенная</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f9f9ff;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.7rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        #single-photo {
+            display: none;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            margin: 20px auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            border: none;
+            background: #4a4fff;
+            color: white;
+            font-size: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2f2fd9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        /* фон с сердечками */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.imgur.com/S8ZqWHh.png'); /* серые сердечки */
+            opacity: 0.07;
+            z-index: -1;
+        }
+    </style>
 </head>
+
 <body>
+
 <header>
-<h1>Ты Особенная</h1>
-<p>Небольшой сайт, созданный специально для тебя</p>
+    <h1>Ты Особенная</h1>
+    <p>Небольшой сайт, созданный специально для тебя</p>
 </header>
 
-
 <section>
-<h2>Почему ты чудесная</h2>
-<p>
-Ты вдохновляешь, заставляешь улыбаться и делаешь каждый день ярче.
-Этот сайт — маленький способ сказать, насколько ты важна.
-</p>
+    <h2>Почему ты чудесная</h2>
+    <p>
+        Ты вдохновляешь, заставляешь улыбаться и делаешь каждый день ярче.
+        Этот сайт — маленький способ сказать, насколько ты важна.
+    </p>
+
+    <h2>Галерея</h2>
+    <div class="gallery">
+        <img src="photo1.jpg" alt="photo">
+        <img src="photo2.jpg" alt="photo">
+        <img src="photo3.jpg" alt="photo">
+    </div>
+
+    <h2>Фото</h2>
+
+    <button onclick="togglePhoto()">Показать фото</button>
+
+    <img id="single-photo" src="singlePhoto.jpg" alt="photo">
+
 </section>
 
+<footer>Сделано с заботой ❤</footer>
 
-<section>
-<h2>Галерея</h2>
-<p>Здесь могут быть твои фотографии или приятные моменты:</p>
+<script>
+    let shown = false;
+    function togglePhoto() {
+        const img = document.getElementById("single-photo");
+        shown = !shown;
+        img.style.display = shown ? "block" : "none";
+    }
+</script>
 
-
-<div class="gallery">
-<img src="https://placekitten.com/300/300" alt="photo" />
-<img src="https://placekitten.com/301/300" alt="photo" />
-<img src="https://placekitten.com/300/301" alt="photo" />
-</div>
-</section>
-
-
-<section>
-<h2>Фото</h2>
-<button onclick="document.getElementById('singlePhoto').style.display='block'" style="padding: 10px 20px; font-size: 1rem; border-radius: 10px; border: none; cursor: pointer; background: #ffffffaa; backdrop-filter: blur(4px);">
-Показать фото
-</button>
-
-
-<div id="singlePhoto" style="display:none; margin-top:20px; text-align:center;">
-<img src="singlePhoto.jpg" style="width:300px; border-radius:20px; box-shadow:0 4px 8px rgba(0,0,0,0.2);" />
-</div>
-</section>
-
-
-<footer>
-Сделано с заботой ❤
-</footer>
 </body>
 </html>
